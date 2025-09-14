@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM Research Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind Dark Mode
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#3b82f6', // blue-500
+                            dark: '#2563eb', // blue-600
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="h-full bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col">
+
+    <!-- Header -->
+    <header class="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+        <h1 class="text-lg font-semibold text-brand-light dark:text-brand-dark">Drew's Research Bot</h1>
+        <button id="themeToggle"
+            class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700">
+            🌙
+        </button>
+    </header>
+
+    <!-- Chat Container -->
+    <main id="chatContainer" class="flex-1 overflow-y-auto p-4 space-y-4 max-w-3xl mx-auto w-full">
+        <!-- Example Messages -->
+        <div class="flex items-start space-x-3">
+            <div class="p-3 rounded-2xl bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 max-w-lg">
+                Hello! How can I help you with your research today?
+            </div>
+        </div>
+        <div class="flex items-start justify-end space-x-3">
+            <div class="p-3 rounded-2xl bg-brand-light text-white max-w-lg">
+                I want to know about scaling LLMs.
+            </div>
+        </div>
+        <!-- Loading dots template -->
+        <div id="loadingDots" class="flex items-start space-x-3 hidden">
+            <div class="p-3 rounded-2xl bg-gray-200 dark:bg-gray-800 max-w-lg flex items-center space-x-2">
+                <span class="w-3 h-3 bg-gray-500 dark:bg-gray-300 rounded-full animate-bounce"></span>
+                <span
+                    class="w-3 h-3 bg-gray-500 dark:bg-gray-300 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                <span
+                    class="w-3 h-3 bg-gray-500 dark:bg-gray-300 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+            </div>
+        </div>
+
+
+    </main>
+
+    <!-- Input Area -->
+    <footer class="border-t border-gray-200 dark:border-gray-700 p-4">
+        <div class="max-w-3xl mx-auto flex items-center space-x-2">
+            <input id="userInput" type="text" placeholder="Type your message..."
+                class="flex-1 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-light dark:focus:ring-brand-dark" />
+            <button id="sendBtn" class="px-4 py-3 bg-brand-light hover:bg-brand-dark text-white rounded-xl font-medium">
+                Send
+            </button>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
