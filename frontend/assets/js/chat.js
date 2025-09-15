@@ -1,11 +1,4 @@
-// Theme Toggle
-// const toggleBtn = document.getElementById("themeToggle");
-// toggleBtn.addEventListener("click", () => {
-//   document.documentElement.classList.toggle("dark");
-//   toggleBtn.textContent = document.documentElement.classList.contains("dark")
-//     ? "☀️"
-//     : "🌙";
-// });
+
 
 // Dark Mode Toggle
 const darkModeToggle = document.getElementById("darkModeToggle");
