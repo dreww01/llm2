@@ -57,7 +57,7 @@ function addBotMessage(text) {
   oldRegens.forEach((el) => el.remove());
 
   // Typing effect
-  typeWriterEffect(bubble, text, 15, () => {
+  typeWriterEffect(bubble, text, 10, () => {
     // Add regenerate link after finishing typing
     const regen = document.createElement("div");
     regen.className =
@@ -66,7 +66,7 @@ function addBotMessage(text) {
 
     regen.addEventListener("click", () => {
       bubble.textContent = "";
-      typeWriterEffect(bubble, text + " (regenerated)", 15);
+      typeWriterEffect(bubble, text + " (regenerated)", 10);
     });
 
     botMsg.appendChild(regen);
@@ -117,4 +117,12 @@ sendBtn.addEventListener("click", () => {
       "This is a placeholder reply from the Gemini backend. In the final version, this area will display detailed responses to your queries, with citations, structured explanations, and context-aware insights designed to support your research."
     );
   }, 1500);
+});
+
+// Listen for Enter key in the input box
+userInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault(); // prevent newline
+    sendBtn.click(); // trigger send button click
+  }
 });
